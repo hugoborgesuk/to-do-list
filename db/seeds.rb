@@ -7,3 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+List.destroy_all
+
+puts 'Creating list...'
+grocery_list = List.create!(title: "Grocery list", item: "apple")
+grocery_list.save
+
+books_read = List.create!(title: "Books to read", item: "Harry Potter")
+books_read.save
+puts 'Finished'

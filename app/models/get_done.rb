@@ -1,0 +1,2 @@
+class GetDone < ApplicationRecord
+end
