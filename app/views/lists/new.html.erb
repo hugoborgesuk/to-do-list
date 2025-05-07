@@ -1,7 +1,9 @@
 <h1>Our first view 🚀</h1>
 
 <%= simple_form_for @list do |f| %>
+  <%= f.error_notification %>
   <%= f.input :title %>
   <%= f.input :item, as: :boolean %>
-  <%= f.submit 'Schedule your band session' %>
+  <%= f.input :item %>
+  <%= f.submit 'Save' %>
 <% end %>
