@@ -1,4 +1,10 @@
 class ListsController < ApplicationController
+  def show
+    @list = List.find(params[:id])
+    @item = @list.item
+  end
+
+
   def new
     @list = List.new
   end

@@ -1,8 +1,5 @@
-<h1>Our first view 🚀</h1>
-
 <%= simple_form_for @list do |f| %>
   <%= f.error_notification %>
-  <%= f.input :title %>
   <%= f.simple_fields_for :items do |item|%>
     <%= item.input :name %>
     <%= item.input :status, as: :boolean %>
