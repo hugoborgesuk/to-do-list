@@ -1,7 +1,10 @@
 <h1> To Do List 🚀</h1>
 <ol>
   <% @lists.each do |list| %>
-    <li><%= list.title %></li>
-      <ul><%= list.item %></ul>
+    <li><%= link_to list do %>
+      <%= list.title %></li>
+    <% end %>
   <% end %>
 </ol>
+
+<p> <%= link_to "Create new list", new_list_path  %> </p>

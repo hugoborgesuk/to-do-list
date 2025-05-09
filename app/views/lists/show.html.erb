@@ -1,8 +1,6 @@
-<%= simple_form_for @list do |f| %>
-  <%= f.error_notification %>
-  <%= f.simple_fields_for :items do |item|%>
-    <%= item.input :name %>
-    <%= item.input :status, as: :boolean %>
-  <% end %>
-  <%= f.submit 'Save' %>
-<% end %>
+<h1> <%= @list.title %> </h1>
+<p> <%= @list.item%> </p>
+
+<p> <%= link_to "<< Lists", get_dones_path %> </p>
+<p> <%= link_to "Edit List", edit_list_path %> </p>
+<p> <%= link_to lists_path, data: {turbo_method: :delete, turbo_cofirm: "Are you sure?"}, class: 'delete-link drop text-decoration-none' do %> Delete list <% end %> </p>

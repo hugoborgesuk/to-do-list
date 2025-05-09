@@ -4,7 +4,6 @@ class ListsController < ApplicationController
     @item = @list.item
   end
 
-
   def new
     @list = List.new
   end
@@ -16,6 +15,24 @@ class ListsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @list = List.find(params[:id])
+  end
+
+  def update
+    @list = List.find(params[:id])
+    if @list.update(list_params)
+      redirect_to @list, notice: "List updated !"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    redirect_to get_dones_path, status: :see_other
   end
 
   private
