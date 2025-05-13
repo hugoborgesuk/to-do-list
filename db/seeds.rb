@@ -10,9 +10,12 @@
 List.destroy_all
 
 puts 'Creating list...'
-grocery_list = List.create!(title: "Grocery list", item: "apple")
+grocery_list = List.create!(title: "Grocery list")
+
+grocery_list.items.create!([ { name: "apple" }, { name: "orange" }, { name: "peach" } ])
 grocery_list.save
 
-books_read = List.create!(title: "Books to read", item: "Harry Potter")
+books_read = List.create!(title: "Books to read")
+books_read.items.create!([ { name: "Harry Potter" } ])
 books_read.save
 puts 'Finished'

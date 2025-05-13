@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_05_08_132700) do
+ActiveRecord::Schema[7.2].define(version: 2025_05_13_130029) do
   create_table "get_dones", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,7 +32,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_08_132700) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "item"
   end
 
   add_foreign_key "get_dones", "lists"

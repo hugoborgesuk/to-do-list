@@ -1,17 +1,19 @@
 class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
-    @item = @list.item
+    @item = @list.items
   end
 
   def new
     @list = List.new
+    @list.items.build
   end
 
   def create
+    Rails.logger.debug "PARAMS => #{params.inspect}"
     @list = List.new(list_params)
     if @list.save
-      redirect_to get_dones_path
+      redirect_to get_dones_path, notice: "Saved com sucesso !"
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,12 +34,13 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find(params[:id])
-    redirect_to get_dones_path, status: :see_other
+    @list.destroy
+    redirect_to get_dones_path, notice: 'List deleted !'
   end
 
   private
 
   def list_params
-    params.require(:list).permit(:title, :item)
+    params.require(:list).permit(:title, items_attributes: [ :name ])
   end
 end

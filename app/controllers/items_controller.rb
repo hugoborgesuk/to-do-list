@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   def create
     @list = List.find(params[:list_id])
 
-    @item = @list.build_item(item_params)
+    @item = @list.item.build(item_params)
 
     if @item.save
       redirect_to list_path(@list), notice: 'Item added to the list !'
@@ -10,4 +10,11 @@ class ItemsController < ApplicationController
       render 'lists/show', status: :unprocessable_entity
     end
   end
+
+  private
+
+  def items_params
+    params.require(:item).permit(:name)
+  end
+
 end
