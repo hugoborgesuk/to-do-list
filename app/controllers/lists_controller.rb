@@ -28,7 +28,7 @@ class ListsController < ApplicationController
     if @list.update(list_params)
       redirect_to @list, notice: "List updated !"
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -41,6 +41,6 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:title, items_attributes: [ :name ])
+    params.require(:list).permit(:title, items_attributes: [ :name, :id, :_destroy ])
   end
 end

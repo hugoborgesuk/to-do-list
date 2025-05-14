@@ -7,3 +7,20 @@
 <p> <%= link_to "<< Lists", get_dones_path %> </p>
 <p> <%= link_to "Edit List", edit_list_path %> </p>
 <p> <%= link_to "Delete", list_path(@list), data: {turbo_method: :delete, turbo_cofirm: "Are you sure?"} %> </p>
+
+<div data-controller="show_input" class="mt-5">
+  <div class="row">
+    <div class="col" data-controller=""insert-in-list>
+      <button class="btn btn-outline-primary">Add a new item</button>
+      <%= simple_form_for @list do |f| %>
+      <%= f.error_notification %>
+      <%= f.simple_fields_for :items, data: { insert_in_list_target: "form"} do |items_form|%>
+        <%= items_form.input_field :name %>
+      <% end %>
+      <%= f.submit 'Save' %>
+      <% end %>
+      <div id="list" data-insert-in-list-target="items">
+      </div>
+    </div>
+  </div>
+</div>
