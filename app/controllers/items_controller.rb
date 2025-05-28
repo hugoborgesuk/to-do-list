@@ -1,8 +1,13 @@
 class ItemsController < ApplicationController
+  def new
+    @item = @list.items.build(items_params)
+    
+  end
+
   def create
     @list = List.find(params[:list_id])
 
-    @item = @list.item.build(item_params)
+    @item = @list.items.build(items_params)
 
     if @item.save
       redirect_to list_path(@list), notice: 'Item added to the list !'
@@ -14,7 +19,7 @@ class ItemsController < ApplicationController
   private
 
   def items_params
-    params.require(:item).permit(:name)
+    params.require(:item).permit(:name, :status)
   end
 
 end

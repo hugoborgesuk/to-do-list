@@ -1,12 +1,13 @@
 class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
-    @item = @list.items
+    @items = @list.items.find_by(id: params[:id])
   end
 
   def new
     @list = List.new
-    @list.items.build
+    5.times{@list.items.build}
+    # items << @list.items.build
   end
 
   def create
@@ -41,6 +42,6 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:title, items_attributes: [ :name, :id, :_destroy ])
+    params.require(:list).permit(:title, items_attributes: [ :name, :id, :status, :_destroy ])
   end
 end

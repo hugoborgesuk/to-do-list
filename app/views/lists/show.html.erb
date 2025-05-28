@@ -1,6 +1,8 @@
-<div class="banner d-flex justify-content-center align-items-center">
   <h1> <%= @list.title %> </h1>
 
+  <%#= simple_form_for @items do |f| %>
+    <%#= f.association :status, as: :boolean %>
+  <%# end %>
   <% @list.items.each do |item| %>
     <p> <%= item.name %> </p>
   <% end %>
@@ -8,26 +10,3 @@
   <p> <%= link_to "<< Lists", get_dones_path %> </p>
   <p> <%= link_to "Edit List", edit_list_path %> </p>
   <p> <%= link_to "Delete", list_path(@list), data: {turbo_method: :delete, turbo_cofirm: "Are you sure?"} %> </p>
-
-  <div data-controller="show-input" class="mt-5">
-    <div class="row">
-      <div class="col" data-controller="insert-in-list">
-        <%= simple_form_for @list do |f| %>
-        <%= f.error_notification %>
-        <div id="form">
-          <%= f.simple_fields_for :items do |items_form|%>
-        </div>
-          <div class="items">
-            <%= items_form.input_field :name %>
-            <button type="button" class="btn btn-danger" data-action="click->remove-input#remove">Delete</button>
-          </div>
-          <% end %>
-        <button type="button" class="btn btn-outline-dark" id="my_button">Add more</button>
-        <%= f.submit 'Save' %>
-        <% end %>
-        <div id="list" data-insert-in-list-target="items">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
