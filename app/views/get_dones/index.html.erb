@@ -1,12 +1,14 @@
-<div class="container">
+<div class="container header">
   <div><h1> To Do List 🚀</h1></div>
-  <ol>
-    <% @lists.each do |list| %>
-      <li><%= link_to list do %>
-        <%= list.title %></li>
-      <% end %>
-    <% end %>
-  </ol>
-
   <p> <%= link_to "Create new list", new_list_path  %> </p>
+</div>
+
+<div class="container card-align">
+  <% @lists.each do |list| %>
+    <div class="card-index">
+      <%= link_to list do %>
+        <p><%= list.title %></p>
+      <% end %>
+    </div>
+  <% end %>
 </div>

@@ -4,7 +4,7 @@
     <%#= f.association :status, as: :boolean %>
   <%# end %>
 
-<div class="container list">
+<div class="container header">
   <div class="title">
     <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
     <h1> <%= @list.title %> </h1>
@@ -16,6 +16,21 @@
   </div>
 </div>
 
-<% @list.items.each do |item| %>
-  <p> <%= item.name %> </p>
-<% end %>
+<div class="items-card col-8">
+  <% @list.items.each do |item| %>
+    <p class="items"> <%= item.name %> </p>
+  <% end %>
+</div>
+
+<div class="container footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>

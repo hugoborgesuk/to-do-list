@@ -1,0 +1,27 @@
+.items-card {
+  border: dashed 4px;
+  border-color: red;
+  border-radius: 10px;
+  width: 600px;
+  height: 100%;
+  margin-top: 20px;
+  margin-left: 130px;
+  background: #F4F4F4;
+}
+
+.card-index {
+  border: dashed 4px;
+  border-color: red;
+  border-radius: 10px;
+  width: 90px;
+  height: 90px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  background: #F4F4F4;
+}
+
+.card-align {
+  display: flex;
+  justify-content: space-around;
+}
