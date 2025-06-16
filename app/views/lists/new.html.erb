@@ -1,13 +1,25 @@
-<h1>Our first view 🚀</h1>
+<div class="container header">
+  <div class="title">
+    <h1>Our first view 🚀</h1>
+  </div>
+  <div class="list-nav">
+    <p> <%= link_to 'Back to list', get_dones_path(@list) %> </p>
+  </div>
+</div>
 
-<%= simple_form_for @list do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :title %>
-  <%= f.simple_fields_for :items do |items_form|%>
-    <%= items_form.input :name %>
-    <%#= item.input :status, as: :boolean %>
-  <% end %>
-  <%= f.submit 'Save' %>
-<% end %>
-
-<p> <%= link_to "Lists", get_dones_path %> </p>
+<div class="items-card col-8">
+  <%= simple_form_for @list do |f| %>
+    <div class="edit-card">
+      <%= f.error_notification %>
+      <%= f.input :title %>
+    </div>
+    <div class="edit-card">
+      <%= f.simple_fields_for :items do |items_form|%>
+        <%= items_form.input :name %>
+      <% end %>
+    </div>
+    <div class="edit-card">
+        <%= f.submit 'Save' %>
+      <% end %>
+    </div>
+</div>
