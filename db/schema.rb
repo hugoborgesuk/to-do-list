@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_05_28_134554) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_17_134248) do
   create_table "get_dones", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -23,7 +23,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_28_134554) do
     t.integer "list_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "status", default: false
     t.index ["list_id"], name: "index_items_on_list_id"
   end
 
@@ -31,6 +30,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_28_134554) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status"
   end
 
   add_foreign_key "get_dones", "lists"

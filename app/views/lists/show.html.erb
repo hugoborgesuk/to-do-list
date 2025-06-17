@@ -10,6 +10,7 @@
   </div>
   <div class="list-nav">
     <p> <%= link_to "Lists", get_dones_path %> </p>
+    <p> <%= link_to "Done", status_path %> </p>
     <p> <%= link_to "Edit List", edit_list_path %> </p>
     <p> <%= link_to "Delete", list_path(@list), data: {turbo_method: :delete, turbo_cofirm: "Are you sure?"} %> </p>
   </div>

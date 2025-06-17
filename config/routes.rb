@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: "get_dones#index", as: :get_dones
+  post "lists/:id", to: "lists#status", as: :status
   resources :lists do
     resources :items
   end

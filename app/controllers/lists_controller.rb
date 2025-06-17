@@ -39,6 +39,15 @@ class ListsController < ApplicationController
     redirect_to get_dones_path, notice: 'List deleted !'
   end
 
+  def status
+    @list = List.find(params[:id])
+      if @list.update(status: true)
+        redirect_to get_dones_path, notice: 'List marked as complete !'
+      else
+        render :show, status: :unprocessable_entity
+      end
+  end
+
   private
 
   def list_params
